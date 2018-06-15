@@ -5,6 +5,7 @@ export function getCurrentVersionByPackage({ config, npm, props }) {
   const changedPackages = Object.keys(semverByPackage)
   const touchedPackages = Object.keys(
     Object.assign(
+      {},
       forwardGraph(relatedPackagesByPackage, changedPackages),
       backwardGraph(relatedPackagesByPackage, changedPackages)
     )
